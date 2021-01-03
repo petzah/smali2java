@@ -64,6 +64,11 @@ func (p *MethodParser) Parse(javaFile *JavaFile, currentLine Line) error {
 		methodNameIndex++
 	}
 
+	if currentLine[methodNameIndex] == java.Abstract {
+		staticOrAbstract = java.Abstract
+		methodNameIndex++
+	}
+
 	smaliMethod = currentLine[methodNameIndex]
 
 	returnValue := ""
